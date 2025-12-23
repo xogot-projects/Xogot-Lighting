@@ -1,0 +1,49 @@
+[gd_scene load_steps=5 format=3 uid="uid://dqxvjudg34lhg"]
+
+[ext_resource type="PackedScene" uid="uid://cohb8et7ekgcb" path="res://Assets/platform.tscn" id="2_s6c45"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_qoi8j"]
+sky_top_color = Color(0, 0.0032959, 0.0956116, 1)
+sky_horizon_color = Color(0, 0.266296, 0.283615, 1)
+sky_curve = 0.0817881
+ground_bottom_color = Color(0, 0.134094, 0.000442505, 1)
+ground_horizon_color = Color(0, 0.378677, 0.365662, 1)
+sun_angle_max = 28.13
+sun_curve = 0.0208044
+
+[sub_resource type="Sky" id="Sky_1gv6y"]
+sky_material = SubResource("ProceduralSkyMaterial_qoi8j")
+
+[sub_resource type="Environment" id="Environment_s6c45"]
+background_mode = 2
+sky = SubResource("Sky_1gv6y")
+tonemap_mode = 2
+glow_enabled = true
+
+[node name="Node2D" type="Node3D"]
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(0.193454, -0.471491, 0.860391, 0.716096, 0.667318, 0.204678, -0.670658, 0.576526, 0.466728, 0, -0.864934, 4.56206)
+light_color = Color(0.848557, 1, 0.999557, 1)
+light_energy = 5.015
+light_indirect_energy = 0.0
+light_volumetric_fog_energy = 0.0
+light_specular = 0.0
+shadow_enabled = true
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_s6c45")
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(0.156228, 0, 0.987721, 0, 1, 0, -0.987721, 0, 0.156228, 7.56417, 3.70253, -0.186602)
+
+[node name="Platform" parent="." instance=ExtResource("2_s6c45")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.66021, -8.6077)
+
+[node name="Platform2" parent="." instance=ExtResource("2_s6c45")]
+
+[node name="Platform3" parent="." instance=ExtResource("2_s6c45")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.0144, -3.77927)
+
+[node name="Platform4" parent="." instance=ExtResource("2_s6c45")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.6872, 4.13662)
